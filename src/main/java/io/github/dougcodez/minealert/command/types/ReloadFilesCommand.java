@@ -38,6 +38,7 @@ public class ReloadFilesCommand extends SubCommand {
         MineAlert.getInstance().getMineAlertSettingsFile().reloadFile("mine-alert-settings.yml");
         MineAlert.getInstance().getLangFile().reloadFile("messages.yml");
         MineAlert.getInstance().getDatabaseFile().reloadFile("database-settings.yml");
+        MineAlert.getInstance().getWorldsFile().reloadFile("worlds.yml");
         sender.sendMessage(FormatUtils.color(Lang.PREFIX.toConfigString() + Lang.RELOAD_MESSAGE));
     }
 }

@@ -5,6 +5,7 @@ import io.github.dougcodez.minealert.command.MineAlertCommand;
 import io.github.dougcodez.minealert.command.SubCommandRegistry;
 import io.github.dougcodez.minealert.file.DatabaseFile;
 import io.github.dougcodez.minealert.file.MineAlertSettingsFile;
+import io.github.dougcodez.minealert.file.WorldsFile;
 import io.github.dougcodez.minealert.file.inventory.InspectMenuSettingsFile;
 import io.github.dougcodez.minealert.file.lang.LangFile;
 import io.github.dougcodez.minealert.gui.listener.GUIListeners;
@@ -31,6 +32,7 @@ public class MineAlert extends JavaPlugin {
     private InspectMenuSettingsFile inspectMenuSettingsFile;
     private MiningUserManager miningUserManager;
     private MiningUserDataHandler userDataHandler;
+    private WorldsFile worldsFile;
 
     @Getter
     private static int interval;
@@ -60,6 +62,7 @@ public class MineAlert extends JavaPlugin {
         statementAPI = new StatementAPI();
         miningUserManager = new MiningUserManager();
         userDataHandler = new MiningUserDataHandler();
+        worldsFile = new WorldsFile();
     }
 
     private void registerRegistries() {
@@ -74,7 +77,7 @@ public class MineAlert extends JavaPlugin {
         databaseFile.registerFile();
         mineAlertSettingsFile.registerFile();
         inspectMenuSettingsFile.registerFile();
-
+        worldsFile.registerFile();
     }
 
     private void registerDatabase() {

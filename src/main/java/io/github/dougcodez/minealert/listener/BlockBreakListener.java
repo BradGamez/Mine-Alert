@@ -16,6 +16,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -178,6 +179,10 @@ public class BlockBreakListener implements Listener {
 
 
     private void alertStaff(Player player, MiningDataProperties dataProperty) {
+        if (MineAlert.getInstance().getWorldsFile().getFileConfiguration().getStringList("worlds")
+                .stream()
+                .anyMatch(world -> world.equalsIgnoreCase(player.getWorld().getName())))
+            return;
         if (!dataProperty.matchesPriorities()) return;
         UUID playerUUID = player.getUniqueId();
         if (dataProperty.getCacheValue(playerUUID) >= dataProperty.getMinVL()) {
