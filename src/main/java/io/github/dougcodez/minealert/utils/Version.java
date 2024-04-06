@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 
 public enum Version implements Comparable<Version> {
 
+    v1_20_R4(24),
+    v1_20_R3(23),
     v1_20_R2(22),
     v1_20_R1(21),
     v1_19_R3(20),
